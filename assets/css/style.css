@@ -3,3 +3,27 @@ html body {
     color: white;
 }
 
+.container {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+img { 
+    height: auto;
+}
+
+@media only screen and (max-width: 500px) {
+	.text {
+		position: relative;
+	}
+
+	img {
+		width: 100%;
+	}
