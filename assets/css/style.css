@@ -3,6 +3,16 @@ html body {
     color: white;
 }
 
+@font-face {
+    font-family: Indiana;
+    src: url('Indiana.otf');
+}
+
+h4 {
+    font-family: Indiana;
+    text-align: center;
+}
+
 .container {
     position: relative;
 }

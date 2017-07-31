@@ -4,6 +4,7 @@
 	<title>Crystal Game</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <meta charset="utf-8">
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -13,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-<img src="assets/images/TempleofDoom.jpg" usemap="#imgmap">
+<img src="assets/images/TempleofDoom.jpg" alt="Skull Photo" usemap="#imgmap">
 
 <map name="imgmap">
   <area class="crystal-image1" shape="circle" coords="500,290,30">
@@ -23,12 +24,15 @@
 
 
 <div class="text">
-<h2>Number to Guess: <span id="number-to-guess"></span></h2>
+<h5>Last Result: <span id="lastResult"></span></h5>
 <h2>Wins: <span id="wins">0</span></h2>
 <h2>Losses: <span id="losses">0</span></h2>
 <h2>Total Score: <span id="totalScore">0</span></h2>
-<h5>Last Result: <span id="lastResult"></span></h5>
+<h2>Number to Guess: <span id="number-to-guess"></span></h2>
 </div>
+</div>
+<div>
+  <h4>Click on the glowing jewels to match your score with the Number to Guess.</h4>
 </div>
 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,8 +52,16 @@ var targetNumberUpdate = function() {
 
 var reset = function() {
       totalScoreCounter = 0;
-      targetNumberUpdate(); //number to guess is supposed to reset after game over- it does not
-      crystalArray = []; //crystalArray is supposed to reset after game over- it does not
+      $("#number-to-guess").text(targetNumberUpdate()); 
+      
+      var crystalArray = [];
+for (var i = 0; i < 3; i++) {
+  crystalArray.push(Math.floor(Math.random() * 12) + 1);
+}
+
+    $(".crystal-image1").attr("data-crystalvalue", crystalArray[0]);
+    $(".crystal-image2").attr("data-crystalvalue", crystalArray[1]);
+    $(".crystal-image3").attr("data-crystalvalue", crystalArray[2]);
 };
 
   $("#number-to-guess").text(targetNumberUpdate());
